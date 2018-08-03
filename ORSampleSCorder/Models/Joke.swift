@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Joke {
+struct Joke: Codable {
     let id: Int
     let text: String
 }
