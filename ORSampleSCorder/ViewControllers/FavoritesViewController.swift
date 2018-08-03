@@ -26,6 +26,24 @@ class FavoritesViewController: UIViewController {
             cell.jokeLbl.text = model.text
         }.disposed(by: disposeBag)
 
-        collectionViewLayout.estimatedItemSize = CGSize(width: 1, height: 1)
+        sizeLayout(size: self.view.frame.size)
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate(alongsideTransition: { _ in
+            self.sizeLayout(size: size)
+        }, completion: nil)
+    }
+
+    func sizeLayout(size: CGSize) {
+        let contentWidth = size.width - (collectionViewLayout.sectionInset.left - collectionViewLayout.sectionInset.right)
+        let preferredWidth = contentWidth >= 300 ? 300 : contentWidth
+        collectionViewLayout.itemSize = CGSize(width: preferredWidth, height: 300)
+        let itemsPerRow = (size.width - size.width.truncatingRemainder(dividingBy: preferredWidth)) / preferredWidth
+        let spacing = (size.width - (itemsPerRow * preferredWidth)) / (2 + (itemsPerRow - 1))
+
+        collectionViewLayout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        collectionViewLayout.minimumInteritemSpacing = spacing - itemsPerRow
+        collectionViewLayout.minimumLineSpacing = spacing
     }
 }
