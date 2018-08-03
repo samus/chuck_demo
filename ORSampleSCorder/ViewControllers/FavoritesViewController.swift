@@ -11,7 +11,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class FavoritesViewController: UIViewController {
+class FavoritesViewController: UIViewController, UICollectionViewDragDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     
@@ -27,6 +27,8 @@ class FavoritesViewController: UIViewController {
         }.disposed(by: disposeBag)
 
         sizeLayout(size: self.view.frame.size)
+
+        collectionView.dragDelegate = self
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -45,5 +47,12 @@ class FavoritesViewController: UIViewController {
         collectionViewLayout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         collectionViewLayout.minimumInteritemSpacing = spacing - itemsPerRow
         collectionViewLayout.minimumLineSpacing = spacing
+    }
+
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? FavoriteCollectionViewCell else { return [] }
+        guard let text = cell.jokeLbl.text else { return [] }
+        let provider = NSItemProvider(object: text as NSString)
+        return [UIDragItem(itemProvider: provider)]
     }
 }

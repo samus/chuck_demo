@@ -11,7 +11,8 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class JokeViewController: UIViewController {
+class JokeViewController: UIViewController, UIDragInteractionDelegate {
+
     @IBOutlet weak var jokeLbl: UILabel!
     @IBOutlet weak var nextJokeBtn: UIButton!
     @IBOutlet weak var favoriteBtn: UIButton!
@@ -38,12 +39,22 @@ class JokeViewController: UIViewController {
 
         viewModel = vm
 
+        let dragInteraction = UIDragInteraction(delegate: self)
+        jokeLbl.addInteraction(dragInteraction)
+        jokeLbl.isUserInteractionEnabled = true
+
         nextJokeBtn.contentEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
     }
 
     override func viewDidLayoutSubviews() {
         nextJokeBtn.layer.cornerRadius = nextJokeBtn.frame.width / 2.0
         favoriteBtn.layer.cornerRadius = favoriteBtn.frame.width / 2.0
+    }
+
+    func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -> [UIDragItem] {
+        guard let text = jokeLbl.text else { return [] }
+        let provider = NSItemProvider(object: text as NSString)
+        return [UIDragItem(itemProvider: provider)]
     }
 }
 
