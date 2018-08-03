@@ -15,7 +15,7 @@ class JokeViewController: UIViewController {
     @IBOutlet weak var jokeLbl: UILabel!
     @IBOutlet weak var nextJokeBtn: UIButton!
     @IBOutlet weak var favoriteBtn: UIButton!
-    @IBOutlet weak var favoritesListBtn: UIButton!
+    @IBOutlet weak var listFavoritesBtn: UIBarButtonItem!
 
     var viewModel: JokeViewModel? = nil
 
@@ -30,6 +30,10 @@ class JokeViewController: UIViewController {
 
         vm.saveResults.subscribe(onNext: { _ in
             //Display error message
+        }).disposed(by: disposeBag)
+
+        listFavoritesBtn.rx.tap.debug().subscribe(onNext: {[weak self] _ in
+            self?.performSegue(withIdentifier: "favorites", sender: self)
         }).disposed(by: disposeBag)
 
         viewModel = vm

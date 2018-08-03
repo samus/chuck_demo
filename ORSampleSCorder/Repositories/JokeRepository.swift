@@ -11,8 +11,15 @@ import Foundation
 import RxSwift
 
 class JokeRepository {
+    static var favorites = [Joke]()
+
     func saveFavorite(joke: Joke) -> Observable<Bool> {
-        print("\(joke.id) is a favorite\n\(joke.text)")
+        if JokeRepository.favorites.contains(where: {$0.id == joke.id}) { return Observable.just(true) }
+        JokeRepository.favorites.append(joke)
         return Observable.just(true)
+    }
+
+    func readFavorites() -> Observable<[Joke]> {
+        return Observable.just(JokeRepository.favorites)
     }
 }

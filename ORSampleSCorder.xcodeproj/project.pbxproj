@@ -17,6 +17,9 @@
 		0945F3AE2112AA45009822B0 /* JokeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945F3AD2112AA45009822B0 /* JokeViewModel.swift */; };
 		0945F3B12112B287009822B0 /* JokeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945F3B02112B287009822B0 /* JokeRepository.swift */; };
 		0945F3B42112B2EF009822B0 /* JokeApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945F3B32112B2EF009822B0 /* JokeApiClient.swift */; };
+		0945F3B621136B07009822B0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945F3B521136B07009822B0 /* FavoritesViewController.swift */; };
+		0945F3B821136B39009822B0 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945F3B721136B39009822B0 /* FavoritesViewModel.swift */; };
+		0945F3BA21136E54009822B0 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945F3B921136E54009822B0 /* FavoriteCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		0945F3AD2112AA45009822B0 /* JokeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeViewModel.swift; sourceTree = "<group>"; };
 		0945F3B02112B287009822B0 /* JokeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeRepository.swift; sourceTree = "<group>"; };
 		0945F3B32112B2EF009822B0 /* JokeApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeApiClient.swift; sourceTree = "<group>"; };
+		0945F3B521136B07009822B0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		0945F3B721136B39009822B0 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		0945F3B921136E54009822B0 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		16B25D24E39FD09F0983ACCF /* Pods-ORSampleSCorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ORSampleSCorder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ORSampleSCorder/Pods-ORSampleSCorder.debug.xcconfig"; sourceTree = "<group>"; };
 		3EE9025F447962C810C44D5E /* Pods_ORSampleSCorder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ORSampleSCorder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83E464A8DB9A870BE33655FB /* Pods-ORSampleSCorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ORSampleSCorder.release.xcconfig"; path = "Pods/Target Support Files/Pods-ORSampleSCorder/Pods-ORSampleSCorder.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +101,9 @@
 				0945F39B21129F9D009822B0 /* Main.storyboard */,
 				0945F39921129F9D009822B0 /* JokeViewController.swift */,
 				0945F3AD2112AA45009822B0 /* JokeViewModel.swift */,
+				0945F3B521136B07009822B0 /* FavoritesViewController.swift */,
+				0945F3B721136B39009822B0 /* FavoritesViewModel.swift */,
+				0945F3B921136E54009822B0 /* FavoriteCollectionViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -248,6 +257,9 @@
 			files = (
 				0945F3B42112B2EF009822B0 /* JokeApiClient.swift in Sources */,
 				0945F39A21129F9D009822B0 /* JokeViewController.swift in Sources */,
+				0945F3B821136B39009822B0 /* FavoritesViewModel.swift in Sources */,
+				0945F3B621136B07009822B0 /* FavoritesViewController.swift in Sources */,
+				0945F3BA21136E54009822B0 /* FavoriteCollectionViewCell.swift in Sources */,
 				0945F39821129F9D009822B0 /* AppDelegate.swift in Sources */,
 				0945F3AB2112A551009822B0 /* Joke.swift in Sources */,
 				0945F3AE2112AA45009822B0 /* JokeViewModel.swift in Sources */,
